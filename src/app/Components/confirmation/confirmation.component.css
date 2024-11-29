@@ -1,0 +1,27 @@
+.confirmation-container {
+  width: 80vw;             /* Set the container width to 80% of the viewport width */
+  margin: 0 auto;          /* Center the container horizontally */
+  padding: 16px;           /* Optional: Add padding around the content */
+  box-sizing: border-box;  /* Ensure padding doesn't affect the width */
+}
+
+.product-details {
+  padding: 16px;
+}
+
+.product-info {
+  padding: 16px;
+}
+
+.product-details img {
+  max-width: 100%;         
+  height: auto;            
+  max-height: 300px;       
+  object-fit: contain;          
+}
+
+.total-amount {
+  padding: 16px;
+  font-weight: bold;
+}
+

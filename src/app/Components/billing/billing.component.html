@@ -1,0 +1,74 @@
+<div class="example-container">
+    <mat-horizontal-stepper linear>
+      <mat-step [stepControl]="addressForm">
+        <form [formGroup]="addressForm">
+          <h3>Shipping Details</h3>
+  
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Enter your name" formControlName="name" >
+            <mat-error *ngIf="addressForm.get('name')?.hasError('required')">Name is required</mat-error>
+
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Address </mat-label>
+            <input matInput placeholder="Enter your address" formControlName="address" >
+            <mat-error *ngIf="addressForm.get('address')?.hasError('required')">Address is required</mat-error>
+
+          </mat-form-field>
+  
+          <mat-form-field>
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Enter your Phone Number" formControlName="phone" maxlength="10" (input)="onPhoneInput($event)"
+            >
+            <mat-error *ngIf="addressForm.get('phone')?.hasError('required')">Phone number is required</mat-error>
+
+          </mat-form-field>
+  
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+  
+      <mat-step [stepControl]="paymentForm">
+        <form [formGroup]="paymentForm">
+          <h3> Payment Details</h3>
+  
+          <mat-radio-group formControlName="paymentMethod">
+            <mat-radio-button value="credit"> Credit Card</mat-radio-button>
+            <mat-radio-button value="paypal"> PhonePay/Google Pay/UPI</mat-radio-button>
+            <mat-radio-button value="cod"> Cash On Delivery </mat-radio-button>
+          </mat-radio-group>
+          <div *ngIf="paymentForm.get('paymentMethod')?.value === 'credit'" class="credit-card-form">
+            <label for="cardName">Name on Card:</label>
+            <input id="cardName" formControlName="cardName" type="text" placeholder="Enter cardholder name" required />
+            <div *ngIf="paymentForm.get('cardName')?.invalid && paymentForm.get('cardName')?.touched" class="error-message">
+              Name on card is required and should only contain letters.
+            </div>
+          
+            <label for="expiryDate">Expiry Date:</label>
+            <input id="expiryDate" formControlName="expiryDate" type="month" required />
+            <div *ngIf="paymentForm.get('expiryDate')?.invalid && paymentForm.get('expiryDate')?.touched" class="error-message">
+              Expiry date is required.
+            </div>
+          
+            <label for="cvv">CVV:</label>
+            <input id="cvv" formControlName="cvv" type="number" placeholder="Enter CVV" maxlength="3" required />
+            <div *ngIf="paymentForm.get('cvv')?.invalid && paymentForm.get('cvv')?.touched" class="error-message">
+              CVV is required and should be 3 digits.
+            </div>
+          </div>
+          
+          
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="onConfirmOrder()"  > Proceed</button>
+          </div>
+         
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+  

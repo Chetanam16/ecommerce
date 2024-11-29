@@ -1,0 +1,30 @@
+<div class="product-container">
+  <mat-card *ngFor="let product of paginatedProducts()" class="product-card">
+    <div class="image-wrapper">
+      <img mat-card-image [src]="product.image" alt="Product Image">
+    </div>
+    <mat-card-content>
+      <h3 class="mat-title description">{{ product.description }}</h3>
+      <p class="price mat-body-2">
+        Old Price: <span class="mat-line-through">{{ product.oldPrice | currency }}</span>
+        <br />
+        New Price: <strong>{{ product.price | currency }}</strong>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onAddToCart(product)">
+        Add To Cart
+      </button>
+      <!-- <button mat-raised-button color="accent" (click)="onBuy(product)" routerLink="/bill">
+        Buy
+      </button> -->
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<mat-paginator
+  [length]="product().length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[4, 8, 12]"
+  (page)="onPageChange($event)">
+</mat-paginator>

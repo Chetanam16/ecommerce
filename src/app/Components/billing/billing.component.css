@@ -1,0 +1,131 @@
+/* Centering the stepper container */
+.checkout-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  height:80vh;
+  max-width: 700px;
+  margin: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
+}
+/* Centering and padding the stepper content */
+.step-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+}
+
+/* Spacing between mat-form-field elements */
+mat-form-field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Styling for the mat-radio-group */
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Aligning and spacing buttons */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button[mat-button] {
+  padding: 10px 20px;
+}
+/* Styling for the container of the credit card form */
+.credit-card-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 15px;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Styling for form labels */
+.credit-card-form label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* Styling for input fields */
+.credit-card-form input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Focus effect on inputs */
+.credit-card-form input:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 5px rgba(63, 81, 181, 0.5);
+}
+
+/* Styling for invalid input fields */
+.credit-card-form input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.credit-card-form input.ng-valid.ng-touched {
+  border-color: green;
+}
+
+/* Styling for error messages */
+.credit-card-form .error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Adding a margin for each input field for spacing */
+.credit-card-form input:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+/* Style for the div surrounding the form inputs */
+.credit-card-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for the container around the error messages */
+.credit-card-form .error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+@media (max-width: 768px) {
+  .billing-form {
+    padding: 15px;
+  }
+
+  .billing-form button {
+    font-size: 0.9rem;
+  }
+}

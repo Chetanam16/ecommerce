@@ -1,0 +1,33 @@
+<div class="confirmation-container">
+  <h2>Order Confirmation</h2>
+  <mat-card *ngIf="products.length > 0; else noProducts">
+    <mat-card-content>
+      <div *ngFor="let product of products" class="product-details">
+        <mat-divider></mat-divider>
+        <div class="product-info">
+          <img [src]="product?.image" alt="Product Image" *ngIf="product?.image" mat-card-image>
+          <h3>{{ product.title }}</h3>
+          <p><strong>Description:</strong> {{ product.description }}</p>
+          <p><strong>Price:</strong> {{ product.price | currency }}</p>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="total-amount">
+    <h3>Total Amount: {{ getTotalAmount() | currency }}</h3>
+  </div>
+
+  <ng-template #noProducts>
+    <mat-card>
+      <mat-card-content>
+        <p>No products available for confirmation.</p>
+      </mat-card-content>
+    </mat-card>
+  </ng-template>
+
+  <div class="payment-button">
+    <button mat-raised-button color="primary" (click)="onProceedPayment()">Proceed to Payment</button>
+  </div>
+</div>
